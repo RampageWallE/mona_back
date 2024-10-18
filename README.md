@@ -1,9 +1,12 @@
-To be able to run this program you have to go to the root folder of the project and use 
-`docker compose up -d --build`
+<h1>EXECUTE THIS BACKEND</h1>
+<h3>To be able to run this program you have to go to the root folder of the project and use </h3>
+`
+docker compose up -d --build
+`
 
-Available routes: 
+<h2>Available routes:</h2> 
 
-POST http://localhost:8000/postUser 
+<h3>POST http://localhost:8000/postUser</h3> 
   body: 
   `{
     "nombre": "Piero Valentino",
