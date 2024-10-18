@@ -56,6 +56,8 @@ docker compose up -d --build
 
 ### GET `http://localhost:8000/ruta-protegida`
 
+*Here you will use the token that you received when you successfully logged in. `POST /postLogin`.*
+
 **Headers:**
 ```
 Authorization: "Bearer <Here goes the token provided when you use the login route correctly>"
