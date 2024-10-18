@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 // const dbURI = process.env.MONGO_URI;
-const dbURI = process.env.MONGO_URI || 'mongodb://mongo:27017/monasterio_backend';
+const dbURI = process.env.MONGO_URI || 'mongodb://localhost:27017/monasterio_backend';
 
 const options = {
     useNewUrlParser: true,
