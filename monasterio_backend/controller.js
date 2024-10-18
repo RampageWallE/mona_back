@@ -78,8 +78,7 @@ postLogin = async (req, res) => {
 
         const token = jwt.sign(
             { id: usuario._id, correo: usuario.correo, permisos: usuario.permisos }, 
-            SECRET_KEY, // Debes usar una clave secreta más fuerte, idealmente en una variable de entorno
-            { expiresIn: '1h' } // Token expira en 1 hora
+            SECRET_KEY
         );
 
 
