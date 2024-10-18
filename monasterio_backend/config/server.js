@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const routes =  require('../routes');
 
+
 class Server {
     constructor(){
         this.app = express();

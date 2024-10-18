@@ -1,7 +1,10 @@
 var conexion = require('./conexion');
 const bcrypt = require('bcryptjs');
-const Usuario = require('./modelos/Usuario')
+const Usuario = require('./modelos/Usuario');
+const jwt = require('jsonwebtoken');
 
+
+const SECRET_KEY = process.env.JWT_SECRET || "w@M9EZRjekuw)tzt1vGb2J0:HAsfm^*N5X+'f3[KOi.S6@:mmU"
 
 listUsers = async (req, res) => {
     try{
@@ -73,10 +76,17 @@ postLogin = async (req, res) => {
             return res.status(400).json({ message: "Contraseña incorrecta" });
         }
 
+        const token = jwt.sign(
+            { id: usuario._id, correo: usuario.correo, permisos: usuario.permisos }, 
+            SECRET_KEY, // Debes usar una clave secreta más fuerte, idealmente en una variable de entorno
+            { expiresIn: '1h' } // Token expira en 1 hora
+        );
+
+
         // Si la contraseña es válida, iniciar sesión
         res.status(200).json({
             message: "Login exitoso",
-            usuario: usuario 
+            token
         });
 
     } catch (err) {

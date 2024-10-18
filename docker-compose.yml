@@ -7,6 +7,7 @@ services:
       - "8000:8000"  # Mapea el puerto 8000 del contenedor al puerto 8000 del host
     environment:
       - MONGO_URI=mongodb://mongo:27017/monasterio_backend  # Conexión a MongoDB
+      - JWT_SECRET=rtS59Waz.@oe0(KQm>^8|6rPNH*£4z>XoS;Vxp+Ak~f?r*:&_I
     depends_on:
       - mongo  # Esperar a que MongoDB esté listo
     networks:
