@@ -1,0 +1,30 @@
+services:
+  backend:
+    build:
+      context: ./monasterio_backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"  # Mapea el puerto 8000 del contenedor al puerto 8000 del host
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/monasterio_backend  # Conexión a MongoDB
+    depends_on:
+      - mongo  # Esperar a que MongoDB esté listo
+    networks:
+      - monasterio_network
+
+  mongo:
+    image: mongo:latest  # Usar la última imagen de MongoDB
+    ports:
+      - "27017:27017"  # Mapea el puerto 27017 del contenedor al puerto 27017 del host
+    volumes:
+      - mongo_data:/data/db  # Persistir datos de 
+    networks:
+      - monasterio_network
+
+volumes:
+  mongo_data:
+
+
+networks:
+  monasterio_network:
+    driver: bridge
